@@ -1,0 +1,103 @@
+{% extends "layout.html" %} 
+{% block content %} 
+<article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata">
+         <div class="title">
+            <h2>1.0.0 发行说明</h2>
+           </div>
+          <br>
+          <small class="text-muted">发布于 2020-03-25</small> 
+          <hr>
+          <div class="whats new">
+            <h4 style="color:blue;">有什么新功能？</h4> 
+              <ul>
+                <div class="patient">
+                <li>患者模块</li>
+                   <ul>
+                     <li>医生可以点击“添加患者”添加新患者信息</li> 
+                     <li>医生还可以在患者信息里添加添加患者病患信息</li> 
+                     <li>医生可以点击“查找患者”来查找全部患者</li> 
+                     <li>管理员账户具有更改与删除患者个人与病患信息，此功能仅限于管理员账户，除此账户外，其他医生只拥有更改的权限</li>
+                   </ul> 
+                  </div>
+
+                  <hr>
+
+                <div class="medicine">
+                  <li>药物</li>
+                    <ul>
+                      <li>医生可以添加药物并更改药物信息</li>
+                      <li>大夫还可以使用“查找药物”来查找所需的药物</li>
+                      <li>管理员账户有权利更改并删除全部药品信息。并非管理员并无此功能</li>
+                    </ul>
+                </div>
+
+                <hr>
+
+                <div class="worklog">
+                  <li>工作日志</li>
+                    <ul>
+                      <li>医生可以添加工作日志以记录工作内容</li>
+                      <li>医生还可以查看全部属于自己的工作日志</li>
+                  </ul>
+                </div>
+
+                <hr>
+
+                <div class="account">
+                  <li>个人账户</li>
+                  <ul>
+                    <li>医生可以更改密码</li>
+                    <li>医生还可以查看全部属于自己的工作日志</li>
+                </ul>
+                </div>
+
+                <hr>
+
+                <div class="account">
+                  <li>管理员账户</li>
+                  <ul>
+                    <li>管理员可以更改删除患者/患者信息/药品/医生</li>
+                    <li>只有管理员可以添加新医生</li>
+                </ul>
+                </div>
+                
+                <hr>
+
+                <div class="account">
+                  <li>新功能</li>
+                  <ul>
+                    <li>医生可以使用电子邮箱重制密码</li>
+                    <li>后台使用患者生日自动计算患者年龄</li>
+                    <li>404 页面</li>
+                    <li>筛选出但一患者的历史记录</li>
+                </ul>
+                </div>
+              </ul>
+          </div>
+
+          <br>
+
+        <hr>
+                  <br>
+
+          <div class="bug fix">
+            <h4 style="color:blue;">修复的bug</h4> 
+              <ul>
+                <div class="patient">
+                   <ul>
+                     <li>患者病患信息错误</li> 
+                     <li>患者病患信息添加完的重新导向错误</li> 
+                     <li>查找患者中文搜索</li>
+                     <li>登陆转接错误</li>
+                     <li>医生更改密码值错误</li> 
+                     <li>管理员更改密码值错误</li> 
+                     <li>工作日志内容格式错误修复</li> 
+                     <li>管理员账户具有更改与删除患者个人与病患信息，此功能仅限于管理员账户，除此账户外，其他医生只拥有更改的权限。</li>
+                   </ul> 
+                  </div>
+
+
+
+{% endblock content %} 

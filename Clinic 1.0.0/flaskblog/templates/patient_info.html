@@ -1,0 +1,51 @@
+{% extends "layout.html" %} 
+{% block content %}
+<div class="content-section">
+  <div class="media">
+    <div class="media-body">
+      <a class="nav-item nav-link" href="{{ url_for('update_patient', patient_id=patient.id) }}">更改患者个人信息</a>
+      {% if current_user.id == 1 %}
+        <a class="nav-item nav-link" href="{{ url_for('delete_patient', patient_id=patient.id) }}">删除患者个人信息</a><hr><br>
+        {% endif %}
+      <h6 class="account-heading">姓名: {{ patient.name }}</h6><hr>
+        <p>手机号: {{ patient.number }} </p>
+        <hr>
+        <script>  
+          var dob = new Date("{{ patient.birth }}"); 
+          //calculate month difference from current date in time  
+          var month_diff = Date.now() - dob.getTime();  
+            
+          //convert the calculated difference in date format  
+          var age_dt = new Date(month_diff);   
+            
+          //extract year from date      
+          var year = age_dt.getUTCFullYear();  
+            
+          //now calculate the age of the user  
+          var age = Math.abs(year - 1970);  
+            
+          //display the calculated age  
+          document.write("年龄: " + age + "岁");  
+      </script> 
+        <hr>
+        <p>性别: {{ patient.gender }}</p>
+        <hr>
+        <p>地址: {{ patient.location }}</p>
+        <hr>
+        <p>出生日期: {{ patient.birth }}</p>
+        <hr>
+        <p>身份证: {{ patient.IDcard }}</p>
+        <hr>
+        <p>填写日期: {{patient.create.strftime('%Y-%m-%d %H:%M') }}</p>
+        <hr>
+        <a class="nav-item nav-link" href="/patient-info-for/{{ patient.name }}">查看此患者历史</a>
+        <a class="nav-item nav-link" href="{{ url_for('add_patient_detail', patient_id=patient.id) }}">添加患者病患信息</a>
+        <a class="nav-item nav-link" href="{{ url_for('patientdetail', patient_id=patient.id) }}">查看患者病患信息</a><br>
+        
+      </div>
+      <br>
+    </div>
+  </div>
+  
+</div>
+{% endblock content %}
