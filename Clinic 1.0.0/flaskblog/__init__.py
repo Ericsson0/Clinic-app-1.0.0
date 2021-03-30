@@ -7,7 +7,7 @@ from flask_mail import Mail
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db' # SQL db, connect to site.db
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db' 
 app.config['SQLALCHEMY_BINDS'] = {'work_log' : 'sqlite:///work-log.db',
                                   'patient' : 'sqlite:///patient.db', 
                                   'medicine' : 'sqlite:///medicine.db',
