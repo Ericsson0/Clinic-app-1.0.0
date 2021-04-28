@@ -1,0 +1,31 @@
+{% extends "layout.html" %} 
+{% block content %} 
+
+<!-- Header -->
+<div class="content-section">
+  <div class="media">
+    <div class="media-body">
+      <a class="nav-item nav-link" href="{{ url_for('patient_detail_update', patient_id=patient.id) }}">更改患者病患信息</a>
+      {% if current_user.id == 1 %}
+        <a class="nav-item nav-link" href="{{ url_for('patient_detail_delete', patient_id=patient.id) }}">删除患者病患信息</a><br>
+      {% else %} 
+      {% endif %}
+      <h6 class="account-heading">患者姓名: {{ patient.name }}</h6>
+      <hr>
+      <p>诊断日期: {{ detail.Date_of_diagnosis.strftime('%Y-%m-%d %H:%M') }}</p><hr>
+        <p>患者症状: {{ detail.Symptom }}</p>
+        <hr>
+        <p>临床诊断: {{ detail.Check_result }}</p>
+        <hr>
+        <p>治疗: {{ detail.Preliminary_treatment_plan }}</p>
+        <hr>
+        <p>标签: {{ detail.tag }}</p>
+        <hr>
+        <!--yaopin-->
+        <p>主治医生: {{ detail.user.name }}</p>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
+{% endblock content %} 

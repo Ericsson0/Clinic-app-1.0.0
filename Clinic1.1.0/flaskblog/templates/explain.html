@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %} 
+<hr>
+    <br>
+
+    <div style="text-align:center"><h1>请在使用前仔细阅读所有相关内容</h1></div>
+
+        <hr>
+
+        <article class="media content-section">
+                <div class='about-patient'>
+                    <h3>患者信息:</h3><br>
+                      <p>患者信息：在主页面中点击患者，便可看到“所有患者”与“添加患者”，如果要添加新患者，请摁“添加患者”，
+                 下一步，医生需要填写患者的个人信息，包括名字，手机号等。<br>在医生填写完毕时候，点击添加，并可直接看到带有患者个人信息的页面。
+                 在上方可以选择更改或者删除患者的信息在填写日期的下面有去往添加患者病患信息的link，点击后便可开始录入患者病患信息。</p><br>
+                </div>
+                </article>
+    <br>
+        <hr>
+<br>
+
+        <article class='media content-section'>
+                <div class='about-medicine'>
+                    <h3>药品信息</h3><br>
+                    <p>在主页面点击药品，便可看到“所有药品”与“添加药品”两个选项，如果要添加新药品，请摁“添加药品”，
+                    下一步，请输入所有关于药品的信息，包括名字和厂商等。<br>填写完毕后，点击添加，便自动跳转到新添加药品信息的页面，在上方可以选择更改或者删除药品的信息，下面便可看到新添加的药品信息。</p><br>
+                </div>
+        </article>
+
+    <br>
+        <hr>
+<br>
+
+        <article class='media content-section'>
+                <div class='about-medicine'>
+                    <h3>医生信息</h3><br>
+                    <p>在主页面点击医生，便可看到“所有医生”，在“所有医生”的页面里，只有管理员才可以删除医生,而且在所有其他的选项，
+                    比如说，患者个人信息，药品信息，患者病患信息只有管理员可以删除。<br>如果没有管理员帐户，所拥有的权限仅限于更改。</p><br>
+            </div>
+        </article>
+
+        <br>
+        <hr>
+<br>
+
+<article class='media content-section'>
+        <div class='about-medicine'>
+            <h3>工作日志信息</h3><br>
+            <p>在主页面点击工作日志，便可看到“查看所有工作日志”与“添加工作日志”两个选项，如果要添加新工作日志，请摁“添加工作日志”，
+            下一步，请输入所有关于工作日志的信息，包括内容与标签。<br>填写完毕后，点击添加，便自动跳转到新添加的工作日志信息的页面。</p><br>
+        </div>
+</article>
+<hr>
+{% endblock content %}

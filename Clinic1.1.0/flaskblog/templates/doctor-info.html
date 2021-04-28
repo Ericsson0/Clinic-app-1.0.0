@@ -1,0 +1,52 @@
+{% extends "layout.html" %} 
+{% block content %}
+<div style="text-align:center"><h3>医生信息</h3></div>
+<div class="content-section">
+  <div class="media">
+    <div class="media-body">
+      {% if user.id == current_user.id %}
+      <a class="nav-item nav-link" href="{{ url_for('update_doctor', user_id=user.id) }}">更改医生信息</a>
+      <a class="nav-item nav-link" href="{{ url_for('reset_request') }}">更改医生密码</a><hr>
+      {% elif current_user.id == 1 %} 
+        <a class="nav-item nav-link" href="{{ url_for('delete_doctor', user_id=user.id) }}">删除医生信息</a><hr><br>
+      {% endif %}
+      <p>医生姓名: {{ user.name }}</p><hr>
+       <p>性别: {{ user.gender }}</p><hr>
+       <p>电话号码: {{ user.number }}</p><hr>
+        <p>科室: {{ user.department }} </p>
+        <hr>
+        <p>邮箱: {{ user.email }}</p>
+        <hr>
+        <script>  
+          var dob = new Date("{{ user.create }}"); 
+          //calculate month difference from current date in time  
+          var month_diff = Date.now() - dob.getTime();  
+            
+          //convert the calculated difference in date format  
+          var age_dt = new Date(month_diff);   
+            
+          //extract year from date      
+          var year = age_dt.getUTCFullYear();  
+            
+          //now calculate the age of the user  
+          var age = Math.abs(year - 1970);  
+            
+          //display the calculated age  
+          document.write("入职时间: " + age + "年");  
+      </script> 
+      <hr>
+        <p>注册日期: {{ user.create.strftime('%Y-%m-%d %H:%M') }}</p>
+        <hr>
+      </div>
+      <br>
+    </div>
+  </div>
+  <div class='content-section'>
+    {% for item in values %} 
+      <a class="mr-2" href="/work/log-for/the/doctor/id/{{ item.id }}">{{ item.title }}</a><br>
+      <p>医生：{{ item.author.name }}</p><br>
+      <p class='text-muted'>{{ item.date_posted.strftime('%Y-%m-%d %H:%M') }}</p><hr>
+   {% endfor %}
+  </div>
+</div>
+{% endblock content %}
