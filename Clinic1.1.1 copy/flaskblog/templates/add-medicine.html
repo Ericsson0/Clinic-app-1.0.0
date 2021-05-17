@@ -1,0 +1,109 @@
+{% extends "layout.html" %} 
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">添加药品</legend>
+                <div class="form-group">
+                    <p class="text-muted">供应商</p>
+                    {% if form.Vendor.errors %}
+                        {{ form.Vendor(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Vendor.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Vendor(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <p class="text-muted">数量</p>
+                    {% if form.Quantity.errors %}
+                        {{ form.Quantity(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Quantity.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Quantity(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <p class="text-muted">药物</p>
+                  {% if form.Medicine_name.errors %}
+                      {{ form.Medicine_name(class="form-control form-control-lg is-invalid") }}
+                      <div class="invalid-feedback">
+                          {% for error in form.Medicine_name.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.Medicine_name(class="form-control form-control-lg") }}
+                  {% endif %}
+                </div>
+                <div class="container">
+                    <div>
+                        <input name="date" id="date" type="date" value="2021-01-01">
+                        <span class="result"></span>
+                    </div>
+                  
+                  </div>
+                  <script>
+                  function init() {
+                    
+                      var _inputs = document.getElementsByTagName('input');
+                  
+                      for (var i = 0; i < _inputs.length; i++) {
+                  
+                          if(!Modernizr.inputtypes[_inputs[i].type]) {
+                              _inputs[i].className = 'not-supported';
+                          }
+                  
+                          _inputs[i].parentNode.getElementsByClassName('result')[0].innerHTML = _inputs[i].value;
+                  
+                          _inputs[i].onchange = function () {
+                              //console.log(this.value);
+                              var result_node = this.parentNode.getElementsByClassName('result');
+                              result_node[0].innerHTML = this.value;
+                          }
+                      }
+                  }
+                  
+                  window.onload = init;
+                  </script>
+                <div class="form-group">
+                    <p class="text-muted">价钱</p>
+                    {% if form.Price.errors %}
+                        {{ form.Price(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Price.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Price(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <p class="text-muted">食用方式</p>
+                  {% if form.How_to_use.errors %}
+                      {{ form.How_to_use(class="form-control form-control-lg is-invalid") }}
+                      <div class="invalid-feedback">
+                          {% for error in form.How_to_use.errors %}
+                              <span>{{ error }}</span>
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.How_to_use(class="form-control form-control-lg") }}
+                  {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

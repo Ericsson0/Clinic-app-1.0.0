@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class='content-section'>
+   <a class="mr-2" href="/addpatient">添加患者</a><a class="mr-2" href="/allpatient">查找患者</a>
+</div>
+<div class='content-section'>
+      {% for patient in patients.items %} 
+        <a class="mr-2" href="/patient/{{ patient.id }}">{{ patient.name }}</a> 
+        <p class='text-muted'>{{ patient.create.strftime('%Y-%m-%d %H:%M') }}</p><hr>
+      {% endfor %}
+  </div>
+    {% for page_num in patients.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+    {% if page_num %}
+      {% if patients.page == page_num %}
+        <a class="btn btn-info mb-4" href="{{ url_for('patient', page=page_num) }}">{{ page_num }}</a>
+      {% else %}
+        <a class="btn btn-outline-info mb-4" href="{{ url_for('patient', page=page_num) }}">{{ page_num }}</a>
+      {% endif %}
+    {% else %}
+      ...
+    {% endif %}
+  {% endfor %}
+{% endblock content %}

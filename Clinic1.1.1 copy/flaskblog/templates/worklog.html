@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class='content-section'>
+  <a class="mr-2" href="/add-work-log/{{ current_user.name }}">添加工作日志</a><a class="mr-2" href="/work-log-info/{{ current_user.name }}">查找我的工作日志</a>
+</div>
+<div class='content-section'>
+      <h3>诊所工作日志</h3> <br>
+      {% for worklog in worklogs.items %} 
+        <a class="mr-2" href="/work/log-for/the/doctor/id/{{ worklog.id }}">{{ worklog.title }}</a><br>
+        <p>内容:{{ worklog.body }}</p><br>
+        <p class='text-muted'>{{ worklog.date_posted.strftime('%Y-%m-%d %H:%M') }}</p><hr>
+      {% endfor %}
+  </div>
+    {% for page_num in worklogs.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+    {% if page_num %}
+      {% if worklogs.page == page_num %}
+        <a class="btn btn-info mb-4" href="{{ url_for('worklog', page=page_num) }}">{{ page_num }}</a>
+      {% else %}
+        <a class="btn btn-outline-info mb-4" href="{{ url_for('worklog', page=page_num) }}">{{ page_num }}</a>
+      {% endif %}
+    {% else %}
+      ...
+    {% endif %}
+  {% endfor %}
+{% endblock content %}
